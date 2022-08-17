@@ -1,17 +1,31 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React, { useState } from "react";
+import ReactDOM from "react-dom/client";
+import { ThemeProvider } from "styled-components";
+import { GlobalStyle } from "./components/shared/global";
+import { defaultTheme, darkTheme } from "./components/shared/styles";
+import PrimaryButton, { SecondaryButton, TertiaryButton } from "./components/Button";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const App = () => {
+  const [useDarkTheme, setUseDarkTheme] = useState(false);
+  const theme = useDarkTheme ? darkTheme : defaultTheme;
+
+  return (
+    <ThemeProvider theme={theme}>
+      <button onClick={() => setUseDarkTheme(!useDarkTheme)}>Dark theme</button>
+      <PrimaryButton>Hello World</PrimaryButton>
+      <SecondaryButton>Hello World</SecondaryButton>
+      <TertiaryButton>Hello World</TertiaryButton>
+      <PrimaryButton disabled>Hello World</PrimaryButton>
+      <SecondaryButton disabled>Hello World</SecondaryButton>
+      <TertiaryButton disabled>Hello World</TertiaryButton>
+      <GlobalStyle />
+    </ThemeProvider>
+  );
+};
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <App />
   </React.StrictMode>
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
