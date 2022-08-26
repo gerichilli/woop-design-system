@@ -1,0 +1,57 @@
+@use 'sass:map';
+@use '../shared/styles/typography.scss' as typography;
+
+.text {
+  &--LBold,
+  &--L {
+    font-size: #{map.get(typography.$typo, 'size', 'm1')};
+    line-height: #{map.get(typography.$typo, 'leading', '6')};
+  }
+
+  &--MBold,
+  &--M {
+    font-size: #{map.get(typography.$typo, 'size', 's3')};
+    line-height: #{map.get(typography.$typo, 'leading', '5')};
+  }
+
+  &--SBold,
+  &--S {
+    font-size: #{map.get(typography.$typo, 'size', 's2')};
+    line-height: #{map.get(typography.$typo, 'leading', '4_5')};
+  }
+
+  &--XSBold,
+  &--XS {
+    font-size: #{map.get(typography.$typo, 'size', 's1')};
+    line-height: #{map.get(typography.$typo, 'leading', '4')};
+  }
+
+  &--LBold,
+  &--MBold,
+  &--SBold,
+  &--XSBold {
+    font-weight: #{map.get(typography.$typo, 'weight', 'bold')};
+  }
+
+  &--L,
+  &--M,
+  &--S,
+  &--XS {
+    font-weight: #{map.get(typography.$typo, 'weight', 'regular')};
+  }
+}
+
+@mixin createTextClass($map, $property, $classPrefix) {
+  @each $key, $value in $map {
+    .#{$classPrefix}--#{$key} {
+      #{$property}: $value;
+    }
+  }
+}
+
+@include createTextClass(
+  map.get(typography.$typo, 'weight'),
+  font-weight,
+  'fw'
+);
+@include createTextClass(map.get(typography.$typo, 'size'), font-size, 'fs');

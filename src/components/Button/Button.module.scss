@@ -1,0 +1,186 @@
+@use 'sass:map';
+@use '../shared/styles/effects.scss' as effects;
+@use '../shared/styles/spacing.scss' as spacing;
+@use '../shared/styles/typography.scss' as typography;
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  border: none;
+  outline: none;
+  border-radius: map.get(effects.$cornerRadius, 'm');
+  font: inherit;
+  font-weight: 800;
+  letter-spacing: map.get(typography.$typo, 'tracking', 'm1');
+  line-height: map.get(typography.$typo, 'leading', '4');
+  white-space: nowrap;
+  box-sizing: border-box;
+
+  cursor: pointer;
+
+  &:focus {
+    box-shadow: var(--strokeFocus);
+  }
+
+  /* ---------------------------------------
+  ---- VARIANTS 
+  --------------------------------------- */
+  // Standard buttons
+  &--primary {
+    background-color: var(--primary);
+    color: var(--textOnPrimary);
+  }
+
+  &--secondary {
+    background-color: var(--primaryL1);
+    color: var(--primary);
+  }
+
+  &--primary,
+  &--secondary {
+    &:hover {
+      background-color: var(--primaryHover);
+      color: var(--textOnPrimary);
+    }
+
+    &:active {
+      background-color: var(--primaryActive);
+    }
+
+    &:disabled {
+      background-color: var(--disabled);
+      color: var(--textOnDisabled);
+    }
+  }
+
+  &--tertiary {
+    background-color: transparent;
+    color: var(--primary);
+
+    &:hover {
+      color: var(--primaryHover);
+    }
+
+    &:active {
+      color: var(--primaryActive);
+    }
+
+    &:disabled {
+      color: var(--textOnDisabled);
+    }
+  }
+
+  // Status buttons
+  &--warning,
+  &--attention,
+  &--success {
+    color: var(--textOnStatus);
+  }
+
+  &--warning {
+    background-color: var(--warning);
+
+    &:hover,
+    &:active {
+      color: var(--warningHover);
+    }
+  }
+
+  &--attention {
+    background-color: var(--attention);
+
+    &:hover,
+    &:active {
+      color: var(--attentionHover);
+    }
+  }
+
+  &--success {
+    background-color: var(--success);
+
+    &:hover,
+    &:active {
+      color: var(--successHover);
+    }
+  }
+
+  &--danger {
+    background-color: var(--danger);
+
+    &:hover,
+    &:active {
+      color: var(--dangerHover);
+    }
+  }
+
+  /* ---------------------------------------
+  ---- SIZES
+  --------------------------------------- */
+  &--xs,
+  &--s {
+    font-size: map.get(typography.$typo, 'size', 's2');
+    line-height: map.get(typography.$typo, 'leading', '4');
+  }
+
+  &--m,
+  &--l {
+    line-height: map.get(typography.$typo, 'leading', '6');
+  }
+
+  &--xs {
+    padding: map.get(spacing.$spacing, 's2') map.get(spacing.$spacing, 'm2');
+
+    &.btn--icon {
+      padding: map.get(spacing.$spacing, 's2');
+    }
+  }
+
+  &--s {
+    padding: map.get(spacing.$spacing, 's3') map.get(spacing.$spacing, 'm3');
+
+    &.btn--icon {
+      padding: map.get(spacing.$spacing, 's3');
+    }
+  }
+
+  &--m {
+    font-size: map.get(typography.$typo, 'size', 's3');
+    padding: map.get(spacing.$spacing, 's4') map.get(spacing.$spacing, 'm4');
+
+    &.btn--icon {
+      padding: map.get(spacing.$spacing, 's4');
+    }
+  }
+
+  &--l {
+    font-size: map.get(typography.$typo, 'size', 'm1');
+    padding: map.get(spacing.$spacing, 's5') map.get(spacing.$spacing, 'm4');
+
+    &.btn--icon {
+      padding: map.get(spacing.$spacing, 's5');
+    }
+  }
+
+  /* ---------------------------------------
+  ---- BUTTON WITH ICON
+  --------------------------------------- */
+  & > * + * {
+    margin-left: map.get(spacing.$spacing, 's3');
+  }
+
+  &--m,
+  &--l {
+    svg {
+      width: map.get(spacing.$spacing, 'm3');
+      height: map.get(spacing.$spacing, 'm3');
+    }
+  }
+
+  &--s,
+  &--xs {
+    svg {
+      width: map.get(spacing.$spacing, 'm1');
+      height: map.get(spacing.$spacing, 'm1');
+    }
+  }
+}

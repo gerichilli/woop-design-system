@@ -1,0 +1,62 @@
+@use 'sass:map';
+@use '../shared/styles/effects.scss' as effects;
+@use '../shared/styles/spacing.scss' as spacing;
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--bgAlpha);
+}
+
+.container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+}
+
+.dialoge {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 480px;
+  background-color: var(--bg);
+  border-radius: #{map.get(effects.$cornerRadius, 'l')};
+  margin-top: 3.75rem;
+  margin-bottom: 3.75rem;
+  padding: #{map.get(spacing.$spacing, 'l1')};
+}
+
+.content {
+  position: relative;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+}
+
+.close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: #{map.get(spacing.$spacing, 'm3')};
+  height: #{map.get(spacing.$spacing, 'm3')};
+  cursor: pointer;
+
+  background-color: transparent;
+  border: none;
+}
+
+.body {
+  margin-top: #{map.get(spacing.$spacing, 'm3')};
+}
+
+.footer {
+  margin-top: #{map.get(spacing.$spacing, 'm3')};
+}

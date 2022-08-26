@@ -1,0 +1,37 @@
+@use 'sass:map';
+@use './components/shared/styles/typography.scss' as typography;
+@import './components/shared/styles/themes.scss';
+@import '../node_modules/normalize-scss/sass/normalize.scss';
+
+html {
+  font-size: 1rem;
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  font-family: map.get(typography.$typo, 'type', 'primary'), Arial, sans-serif;
+  font-size: map.get(typography.$typo, 'size', 's3');
+  font-weight: map.get(typography.$typo, 'weight', 'regular');
+  color: var(--textPrimary);
+  line-height: map.get(typography.$typo, 'leading', 'default');
+  overflow-x: hidden;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-tap-highlight-color: transparent;
+  -webkit-overflow-scrolling: touch;
+}
+
+#root {
+  min-height: 100vh;
+}
