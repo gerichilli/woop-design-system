@@ -14,7 +14,7 @@ export default create({
 
   // Typography
   fontBase: '"Mulish", sans-serif',
-  fontCode: 'monospace',
+  fontCode: '"Space Mono", monospace',
 
   // Text colors
   textColor: '#D9D9D9',
@@ -28,6 +28,6 @@ export default create({
   brandTitle: 'Woop Storybook',
   brandUrl: 'https://example.com',
   brandImage:
-    'https://raw.githubusercontent.com/gerichilli/woop-design-system/main/public/favicon.png',
+    'https://raw.githubusercontent.com/gerichilli/woop-design-system/main/src/assets/images/logo.png',
   brandTarget: '_self',
 });

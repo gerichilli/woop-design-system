@@ -1,9 +1,9 @@
 @use 'sass:map';
-@use '../shared/styles/effects.scss' as effects;
-@use '../shared/styles/spacing.scss' as spacing;
-@use '../shared/styles/typography.scss' as typography;
+@use '../../styles/effects.scss' as effects;
+@use '../../styles/spacing.scss' as spacing;
+@use '../../styles/typography.scss' as typography;
 
-.btn {
+.Button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -28,137 +28,128 @@
     color: var(--textOnDisabled);
   }
 
-  /* ---------------------------------------
-  ---- VARIANTS 
-  --------------------------------------- */
-  // Standard buttons
-  &--primary {
-    background-color: var(--primary);
-    color: var(--textOnPrimary);
-  }
-
-  &--secondary {
-    background-color: var(--primaryL1);
-    color: var(--primary);
-  }
-
-  &--primary,
-  &--secondary {
-    &:hover {
-      background-color: var(--primaryHover);
-      color: var(--textOnPrimary);
-    }
-
-    &:active {
-      background-color: var(--primaryActive);
-    }
-  }
-
-  &--tertiary {
-    background-color: transparent;
-    color: var(--primary);
-
-    &:hover {
-      color: var(--primaryHover);
-    }
-
-    &:active {
-      color: var(--primaryActive);
-    }
-
-    &:disabled {
-      color: var(--textOnDisabled);
-    }
-  }
-
-  // Status buttons
-  $status: warning, success, attention, danger;
-
-  @each $value in $status {
-    &--#{$value} {
-      background-color: var(--#{$value});
-      color: var(--textOnStatus);
-
-      &:hover,
-      &:active {
-        background-color: var(--#{$value}Hover);
-      }
-
-      &:disabled {
-        background-color: var(--disabled);
-        color: var(--textOnDisabled);
-      }
-    }
-  }
-
-  /* ---------------------------------------
-  ---- SIZES
-  --------------------------------------- */
-  &--xs,
-  &--s {
-    font-size: map.get(typography.$typo, 'size', 's2');
-    line-height: map.get(typography.$typo, 'leading', '4');
-  }
-
-  &--m,
-  &--l {
-    line-height: map.get(typography.$typo, 'leading', '6');
-  }
-
-  &--xs {
-    padding: map.get(spacing.$spacing, 's2') map.get(spacing.$spacing, 'm2');
-
-    &.btn--icon {
-      padding: map.get(spacing.$spacing, 's2');
-    }
-  }
-
-  &--s {
-    padding: map.get(spacing.$spacing, 's3') map.get(spacing.$spacing, 'm3');
-
-    &.btn--icon {
-      padding: map.get(spacing.$spacing, 's3');
-    }
-  }
-
-  &--m {
-    font-size: map.get(typography.$typo, 'size', 's3');
-    padding: map.get(spacing.$spacing, 's4') map.get(spacing.$spacing, 'm4');
-
-    &.btn--icon {
-      padding: map.get(spacing.$spacing, 's4');
-    }
-  }
-
-  &--l {
-    font-size: map.get(typography.$typo, 'size', 'm1');
-    padding: map.get(spacing.$spacing, 's5') map.get(spacing.$spacing, 'm4');
-
-    &.btn--icon {
-      padding: map.get(spacing.$spacing, 's5');
-    }
-  }
-
-  /* ---------------------------------------
-  ---- BUTTON WITH ICON
-  --------------------------------------- */
   & > * + * {
     margin-left: map.get(spacing.$spacing, 's3');
   }
+}
 
-  &--m,
-  &--l {
-    svg {
-      width: map.get(spacing.$spacing, 'm3');
-      height: map.get(spacing.$spacing, 'm3');
-    }
+/* ---------------------------------------
+  ---- BUTTONS VARIANTS 
+  --------------------------------------- */
+// Standard buttons
+.primary {
+  background-color: var(--primary);
+  color: var(--textOnPrimary);
+}
+
+.secondary {
+  background-color: var(--primaryL1);
+  color: var(--primary);
+}
+
+.primary,
+.secondary {
+  &:hover {
+    background-color: var(--primaryHover);
+    color: var(--textOnPrimary);
   }
 
-  &--s,
-  &--xs {
-    svg {
-      width: map.get(spacing.$spacing, 'm1');
-      height: map.get(spacing.$spacing, 'm1');
+  &:active {
+    background-color: var(--primaryActive);
+  }
+}
+
+.tertiary {
+  background-color: transparent;
+  color: var(--primary);
+
+  &:hover {
+    color: var(--primaryHover);
+  }
+
+  &:active {
+    color: var(--primaryActive);
+  }
+
+  &:disabled {
+    color: var(--textOnDisabled);
+  }
+}
+
+// Status buttons
+$status: warning, success, attention, danger;
+
+@each $value in $status {
+  .#{$value} {
+    background-color: var(--#{$value});
+    color: var(--textOnStatus);
+
+    &:hover,
+    &:active {
+      background-color: var(--#{$value}Hover);
     }
+
+    &:disabled {
+      background-color: var(--disabled);
+      color: var(--textOnDisabled);
+    }
+  }
+}
+
+/* ---------------------------------------
+  ---- BUTTONS SIZES
+  --------------------------------------- */
+.xs,
+.s {
+  font-size: map.get(typography.$typo, 'size', 's2');
+  line-height: map.get(typography.$typo, 'leading', '4');
+
+  svg {
+    width: map.get(spacing.$spacing, 'm1');
+    height: map.get(spacing.$spacing, 'm1');
+  }
+}
+
+.m,
+.l {
+  line-height: map.get(typography.$typo, 'leading', '6');
+
+  svg {
+    width: map.get(spacing.$spacing, 'm3');
+    height: map.get(spacing.$spacing, 'm3');
+  }
+}
+
+.xs {
+  padding: map.get(spacing.$spacing, 's2') map.get(spacing.$spacing, 'm2');
+
+  &.iconOnly {
+    padding: map.get(spacing.$spacing, 's2');
+  }
+}
+
+.s {
+  padding: map.get(spacing.$spacing, 's3') map.get(spacing.$spacing, 'm3');
+
+  &.iconOnly {
+    padding: map.get(spacing.$spacing, 's3');
+  }
+}
+
+.m {
+  font-size: map.get(typography.$typo, 'size', 's3');
+  padding: map.get(spacing.$spacing, 's4') map.get(spacing.$spacing, 'm4');
+
+  &.iconOnly {
+    padding: map.get(spacing.$spacing, 's4');
+  }
+}
+
+.l {
+  font-size: map.get(typography.$typo, 'size', 'm1');
+  padding: map.get(spacing.$spacing, 's5') map.get(spacing.$spacing, 'm4');
+
+  &.iconOnly {
+    padding: map.get(spacing.$spacing, 's5');
   }
 }

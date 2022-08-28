@@ -1,45 +1,46 @@
 @use 'sass:map';
-@use '../shared/styles/mixins.scss' as mixins;
-@use '../shared/styles/typography.scss' as typography;
+@use '../../styles/mixins.scss' as mixins;
+@use '../../styles/typography.scss' as typography;
 
-.text {
-  &--LBold,
-  &--L {
-    font-size: #{map.get(typography.$typo, 'size', 'm1')};
-    line-height: #{map.get(typography.$typo, 'leading', '6')};
-  }
+.Text {
+}
 
-  &--MBold,
-  &--M {
-    font-size: #{map.get(typography.$typo, 'size', 's3')};
-    line-height: #{map.get(typography.$typo, 'leading', '5')};
-  }
+.LBold,
+.L {
+  font-size: #{map.get(typography.$typo, 'size', 'm1')};
+  line-height: #{map.get(typography.$typo, 'leading', '6')};
+}
 
-  &--SBold,
-  &--S {
-    font-size: #{map.get(typography.$typo, 'size', 's2')};
-    line-height: #{map.get(typography.$typo, 'leading', '4_5')};
-  }
+.MBold,
+.M {
+  font-size: #{map.get(typography.$typo, 'size', 's3')};
+  line-height: #{map.get(typography.$typo, 'leading', '5')};
+}
 
-  &--XSBold,
-  &--XS {
-    font-size: #{map.get(typography.$typo, 'size', 's1')};
-    line-height: #{map.get(typography.$typo, 'leading', '4')};
-  }
+.SBold,
+.S {
+  font-size: #{map.get(typography.$typo, 'size', 's2')};
+  line-height: #{map.get(typography.$typo, 'leading', '4_5')};
+}
 
-  &--LBold,
-  &--MBold,
-  &--SBold,
-  &--XSBold {
-    font-weight: #{map.get(typography.$typo, 'weight', 'bold')};
-  }
+.XSBold,
+.XS {
+  font-size: #{map.get(typography.$typo, 'size', 's1')};
+  line-height: #{map.get(typography.$typo, 'leading', '4')};
+}
 
-  &--L,
-  &--M,
-  &--S,
-  &--XS {
-    font-weight: #{map.get(typography.$typo, 'weight', 'regular')};
-  }
+.LBold,
+.MBold,
+.SBold,
+.XSBold {
+  font-weight: #{map.get(typography.$typo, 'weight', 'bold')};
+}
+
+.L,
+.M,
+.S,
+.XS {
+  font-weight: #{map.get(typography.$typo, 'weight', 'regular')};
 }
 
 // It will create a class like fw--bold, fw--regular, etc.

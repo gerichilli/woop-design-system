@@ -13,9 +13,9 @@ export function ModalContent({ children }) {
   });
 
   return (
-    <div className={styles.container}>
-      <animated.div className={styles.dialoge} style={animation}>
-        <div className={styles.content}>{children}</div>
+    <div className={styles.Container}>
+      <animated.div className={styles.Dialoge} style={animation}>
+        <div className={styles.Content}>{children}</div>
       </animated.div>
     </div>
   );
@@ -23,23 +23,23 @@ export function ModalContent({ children }) {
 
 export function ModalHeader({ children }) {
   return (
-    <div className={styles.header}>
+    <div className={styles.Header}>
       <Text variant="LBold">{children}</Text>
     </div>
   );
 }
 
 export function ModalBody({ children }) {
-  return <div className={styles.body}>{children}</div>;
+  return <div className={styles.Body}>{children}</div>;
 }
 
 export function ModalFooter({ children }) {
-  return <div className={styles.footer}>{children}</div>;
+  return <div className={styles.Footer}>{children}</div>;
 }
 
 export function ModalCloseButton() {
   return (
-    <button className={styles.close} aria-label="Close Modal">
+    <button className={styles.Close} aria-label="Close Modal">
       <Icon icon="close" />
     </button>
   );
@@ -48,7 +48,7 @@ export function ModalCloseButton() {
 export function Modal({ children }) {
   return createPortal(
     <div>
-      <div className={styles.overlay} />
+      <div className={styles.Overlay} />
       {children}
     </div>,
     document.getElementById('modal'),

@@ -1,22 +1,26 @@
 import { forwardRef } from 'react';
 import PropTypes from 'prop-types';
+import { classNames } from '../../utils/css';
 import styles from './Button.module.scss';
 import { Icon } from '../Icon';
 
-export const Button = forwardRef(function Button (props, ref){
-  const {apperiance, size, leftIcon, rightIcon, variant, children, ...restProps} = props;
+export const Button = forwardRef(function Button(
+  { apperiance, size, leftIcon, rightIcon, isIconOnly, children, ...props },
+  ref,
+) {
+  const className = classNames(
+    styles.Button,
+    apperiance && styles[apperiance],
+    size && styles[size],
+    isIconOnly && styles.iconOnly,
+  );
 
-  const apperianceClass = styles[`btn--${apperiance}`]; 
-  const sizeClass = styles[`btn--${size}`];
-  const variantClass = variant === "icon" ? styles['btn--icon'] : '';
-  
-  const btnClass = `${styles.btn} ${apperianceClass} ${sizeClass} ${variantClass}`
-  const btnText = leftIcon || rightIcon ? <span>{children}</span> : children;
-  
+  const btnLabel = leftIcon || rightIcon ? <span>{children}</span> : children;
+
   return (
-    <button className={btnClass} {...restProps} ref={ref}>
+    <button className={className} {...props} ref={ref}>
       {leftIcon && <Icon icon={leftIcon} />}
-      {children && btnText}
+      {children && btnLabel}
       {rightIcon && <Icon icon={rightIcon} />}
     </button>
   );
@@ -25,18 +29,26 @@ export const Button = forwardRef(function Button (props, ref){
 Button.defaultProps = {
   leftIcon: null,
   rightIcon: null,
+  isIconOnly: false,
   type: 'button',
   disabled: false,
-  variant: "standard",
-  apperiance: "primary",
+  apperiance: 'primary',
 };
 
 Button.propTypes = {
-  apperiance: PropTypes.oneOf(['primary', 'secondary', 'tertiary', 'warning', 'attention', 'success', 'danger']).isRequired,
+  apperiance: PropTypes.oneOf([
+    'primary',
+    'secondary',
+    'tertiary',
+    'warning',
+    'attention',
+    'success',
+    'danger',
+  ]).isRequired,
   size: PropTypes.oneOf(['xs', 's', 'm', 'l']).isRequired,
   type: PropTypes.oneOf(['button', 'submit', 'reset']),
   disabled: PropTypes.bool,
   leftIcon: PropTypes.string,
   rightIcon: PropTypes.string,
-  variant: PropTypes.oneOf(['icon', 'standard']),
+  isIconOnly: PropTypes.bool,
 };

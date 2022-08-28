@@ -1,27 +1,38 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { classNames } from '../../utils/css';
 import styles from './Stack.module.scss';
 
-export function Stack({ children, direction, spacing, alignment, justify }) {
-  const directionClass = styles[`stack--${direction}`];
-  const spacingClass = styles[`stack--${spacing}`];
-  const alignmentClass = styles[`stack--${alignment}`];
+export function Stack({
+  children,
+  direction,
+  spacing,
+  alignment,
+  justify,
+  ...props
+}) {
 
-  const stackClass = `${styles.stack} ${directionClass} ${spacingClass} ${alignmentClass}`;
+  const className = classNames(
+    styles.Stack,
+    direction && styles[direction],
+    spacing && styles[spacing],
+    alignment && styles[alignment],
+    justify && styles[justify],
+  );
 
-  return <div className={stackClass}>{children}</div>;
+  return <div className={className} {...props}>{children}</div>;
 }
 
 Stack.defaultProps = {
-    direction: 'row',
-    spacing: 'm1',
-    alignment: 'stretch',
-    justify: 'start',
-}
+  direction: 'row',
+  spacing: 'm1',
+  alignment: 'stretch',
+  justify: 'start',
+};
 
 Stack.propTypes = {
-    direction: PropTypes.oneOf(['row', 'column']),
-    spacing: PropTypes.string,
-    alignment: PropTypes.oneOf(['start', 'center', 'end', 'stretch']),
-    justify: PropTypes.oneOf(['start', 'center', 'end', 'between', 'around']),
-}
+  direction: PropTypes.oneOf(['row', 'column']),
+  spacing: PropTypes.string,
+  alignment: PropTypes.oneOf(['start', 'center', 'end', 'stretch']),
+  justify: PropTypes.oneOf(['start', 'center', 'end', 'between', 'around']),
+};

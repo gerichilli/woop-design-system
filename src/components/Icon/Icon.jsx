@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from "prop-types";
-import { icons } from '../shared/icons';
+import { icons } from '../../assets/icons';
 import styles from "./Icon.module.scss";
 
 export function Icon({icon, ...props}) {
@@ -12,7 +12,7 @@ export function Icon({icon, ...props}) {
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       aria-hidden="true"
-      className={styles.icon}
+      className={styles.Icon}
       {...props}
     >
         {icons[icon]}

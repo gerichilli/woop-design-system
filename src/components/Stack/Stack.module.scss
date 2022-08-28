@@ -1,48 +1,48 @@
 @use 'sass:map';
-@use '../shared/styles/spacing.scss' as spacing;
+@use '../../styles/spacing.scss' as spacing;
 
-.stack {
+.Stack {
   display: flex;
+}
 
-  /* STACK DIRECTIONS */
-  &--row {
-    flex-direction: row;
-  }
+/* STACK DIRECTIONS */
+.row {
+  flex-direction: row;
+}
 
-  &--column {
-    flex-direction: column;
-  }
+.column {
+  flex-direction: column;
+}
 
-  /* STACK SPACING */
-  @each $key, $value in spacing.$spacing {
-    &--#{$key}:not(.stack--row) {
-      > * + * {
-        margin-top: $value;
-      }
-    }
-
-    &--#{$key}:not(.stack--column) {
-      > * + * {
-        margin-left: $value;
-      }
+/* STACK SPACING */
+@each $key, $value in spacing.$spacing {
+  .#{$key}:not(.row) {
+    > * + * {
+      margin-top: $value;
     }
   }
 
-  /* STACK ALIGNMENT */
-  $aligment: start, center, end, stretch;
-
-  @each $value in $aligment {
-    &--#{$value} {
-      align-items: $value;
+  .#{$key}:not(.column) {
+    > * + * {
+      margin-left: $value;
     }
   }
+}
 
-  /* STACK JUSTIFY */
-  $justify: start, center, end, between, around, evenly;
+/* STACK ALIGNMENT */
+$aligment: start, center, end, stretch;
 
-  @each $value in $justify {
-    &--#{$value} {
-      justify-content: $value;
-    }
+@each $value in $aligment {
+  .align-#{$value} {
+    align-items: $value;
+  }
+}
+
+/* STACK JUSTIFY */
+$justify: start, center, end, between, around, evenly;
+
+@each $value in $justify {
+  .justify-#{$value} {
+    justify-content: $value;
   }
 }

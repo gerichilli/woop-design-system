@@ -13,29 +13,27 @@ import {
 } from './components';
 
 function App() {
-  const [useDarkTheme, setUseDarkTheme] = useState(false);
-
   return (
     <>
-      <button onClick={() => setUseDarkTheme((prev) => !prev)}>
-        Dark theme
-      </button>
-      <Button apperiance="primary" size="l" leftIcon="plusOutline">
-        Hello Icon
-      </Button>
-      <Button
-        apperiance="primary"
-        size="l"
-        variant="icon"
-        leftIcon="heartOutline"
-        aria-label="Like"
-      />
-      <Button apperiance="warning" size="s" rightIcon="plusOutline">
-        Hello icon
-      </Button>
-      <Button apperiance="primary" size="l">
-        Hello icon
-      </Button>
+      <Stack direction="row" spacing="s3">
+        <Button apperiance="primary" size="l" leftIcon="plus">
+          Hello Icon
+        </Button>
+        <Button
+          apperiance="primary"
+          size="l"
+          variant="icon"
+          leftIcon="heartOutline"
+          isIconOnly
+          aria-label="Like"
+        />
+        <Button apperiance="warning" size="s" rightIcon="plus">
+          Hello icon
+        </Button>
+        <Button apperiance="primary" size="l">
+          Hello icon
+        </Button>
+      </Stack>
 
       <Modal>
         <ModalContent>

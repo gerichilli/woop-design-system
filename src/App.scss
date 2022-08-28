@@ -1,7 +1,7 @@
 @use 'sass:map';
-@use './components/shared/styles/typography.scss' as typography;
+@use './styles/typography.scss' as typography;
 @import '../node_modules/normalize-scss/sass/normalize.scss';
-@import './components/shared/styles/themes.scss';
+@import './styles/themes.scss';
 
 html {
   font-size: 1rem;

@@ -1,10 +1,10 @@
 @use 'sass:map';
-@use '../shared/styles/effects.scss' as effects;
-@use '../shared/styles/spacing.scss' as spacing;
+@use '../../styles/effects.scss' as effects;
+@use '../../styles/spacing.scss' as spacing;
 
 $modalWidth: 480px;
 
-.overlay {
+.Overlay {
   position: fixed;
   top: 0;
   left: 0;
@@ -13,7 +13,7 @@ $modalWidth: 480px;
   background-color: var(--bgAlpha);
 }
 
-.container {
+.Container {
   position: fixed;
   top: 0;
   left: 0;
@@ -21,7 +21,7 @@ $modalWidth: 480px;
   height: 100vh;
 }
 
-.dialoge {
+.Dialoge {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
@@ -34,16 +34,16 @@ $modalWidth: 480px;
   padding: map.get(spacing.$spacing, 'l1');
 }
 
-.content {
+.Content {
   position: relative;
 }
 
-.header {
+.Header {
   display: flex;
   align-items: center;
 }
 
-.close {
+.Close {
   position: absolute;
   top: 0;
   right: 0;
@@ -55,10 +55,10 @@ $modalWidth: 480px;
   border: none;
 }
 
-.body {
+.Body {
   margin-top: map.get(spacing.$spacing, 'm3');
 }
 
-.footer {
+.Footer {
   margin-top: map.get(spacing.$spacing, 'm3');
 }
