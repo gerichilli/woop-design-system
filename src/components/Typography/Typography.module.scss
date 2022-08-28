@@ -1,4 +1,5 @@
 @use 'sass:map';
+@use '../shared/styles/mixins.scss' as mixins;
 @use '../shared/styles/typography.scss' as typography;
 
 .text {
@@ -41,17 +42,16 @@
   }
 }
 
-@mixin createTextClass($map, $property, $classPrefix) {
-  @each $key, $value in $map {
-    .#{$classPrefix}--#{$key} {
-      #{$property}: $value;
-    }
-  }
-}
-
-@include createTextClass(
+// It will create a class like fw--bold, fw--regular, etc.
+@include mixins.createClassFromMaps(
   map.get(typography.$typo, 'weight'),
-  font-weight,
+  'font-weight',
   'fw'
 );
-@include createTextClass(map.get(typography.$typo, 'size'), font-size, 'fs');
+
+// It will create a class like fs--s1, fs--s2, etc.
+@include mixins.createClassFromMaps(
+  map.get(typography.$typo, 'size'),
+  'font-size',
+  'fs'
+);

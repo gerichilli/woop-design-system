@@ -1,0 +1,84 @@
+import { Meta, Story, Preview } from '@storybook/addon-docs';
+import { action } from '@storybook/addon-actions';
+import { Button } from './Button.jsx';
+
+<Meta
+  title="Components/Button"
+  component={Button}
+  argTypes={{
+    leftIcon: {
+      control: 'select',
+      options: ['arrowLeft', 'arrowRight', 'close', 'heartOutline', 'plus'],
+    },
+    rightIcon: {
+      control: 'select',
+      options: ['arrowLeft', 'arrowRight', 'close', 'heartOutline', 'plus'],
+    },
+  }}
+/>
+
+export const Template = ({ label, ...args }) => (
+  <Button {...args}>{label}</Button>
+);
+
+# Button
+
+Buttons are used to trigger actions within an application.
+
+## Usage
+
+Buttons are used to trigger internal actions within your web applications.
+
+## Primary Buttons
+
+Primary buttons are used as a call to action and indicate the most important action on a page.
+
+<Preview withToolbar>
+  <Story
+    name="Primary"
+    args={{
+      label: 'Action',
+      apperiance: 'primary',
+      size: 'l',
+      onClick: action('button click'),
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Preview>
+
+## Secondary Buttons
+
+Secondary buttons are used as a call to action and indicate the most important action on a page.
+
+<Preview withToolbar>
+  <Story
+    name="Secondary"
+    args={{
+      label: 'Action',
+      apperiance: 'secondary',
+      size: 'l',
+      onClick: action('button click'),
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Preview>
+
+## Tertiary Buttons
+
+Tertiary buttons are used as a call to action and indicate the most important action on a page.
+
+<Preview withToolbar>
+  <Story
+    name="Tertiary"
+    args={{
+      label: 'Action',
+      apperiance: 'tertiary',
+      size: 'l',
+      onClick: action('button click'),
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Preview>

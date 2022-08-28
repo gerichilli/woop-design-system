@@ -2,6 +2,8 @@
 @use '../shared/styles/effects.scss' as effects;
 @use '../shared/styles/spacing.scss' as spacing;
 
+$modalWidth: 480px;
+
 .overlay {
   position: fixed;
   top: 0;
@@ -24,12 +26,12 @@
   left: 50%;
   transform: translateX(-50%);
   width: 100%;
-  max-width: 480px;
-  background-color: var(--bg);
-  border-radius: #{map.get(effects.$cornerRadius, 'l')};
+  max-width: $modalWidth;
+  background-color: var(--background);
+  border-radius: map.get(effects.$cornerRadius, 'l');
   margin-top: 3.75rem;
   margin-bottom: 3.75rem;
-  padding: #{map.get(spacing.$spacing, 'l1')};
+  padding: map.get(spacing.$spacing, 'l1');
 }
 
 .content {
@@ -45,8 +47,8 @@
   position: absolute;
   top: 0;
   right: 0;
-  width: #{map.get(spacing.$spacing, 'm3')};
-  height: #{map.get(spacing.$spacing, 'm3')};
+  width: map.get(spacing.$spacing, 'm3');
+  height: map.get(spacing.$spacing, 'm3');
   cursor: pointer;
 
   background-color: transparent;
@@ -54,9 +56,9 @@
 }
 
 .body {
-  margin-top: #{map.get(spacing.$spacing, 'm3')};
+  margin-top: map.get(spacing.$spacing, 'm3');
 }
 
 .footer {
-  margin-top: #{map.get(spacing.$spacing, 'm3')};
+  margin-top: map.get(spacing.$spacing, 'm3');
 }

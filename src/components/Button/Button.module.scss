@@ -6,6 +6,7 @@
 .btn {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   border: none;
   outline: none;
   border-radius: map.get(effects.$cornerRadius, 'm');
@@ -20,6 +21,11 @@
 
   &:focus {
     box-shadow: var(--strokeFocus);
+  }
+
+  &:disabled {
+    background-color: var(--disabled);
+    color: var(--textOnDisabled);
   }
 
   /* ---------------------------------------
@@ -46,11 +52,6 @@
     &:active {
       background-color: var(--primaryActive);
     }
-
-    &:disabled {
-      background-color: var(--disabled);
-      color: var(--textOnDisabled);
-    }
   }
 
   &--tertiary {
@@ -71,45 +72,22 @@
   }
 
   // Status buttons
-  &--warning,
-  &--attention,
-  &--success {
-    color: var(--textOnStatus);
-  }
+  $status: warning, success, attention, danger;
 
-  &--warning {
-    background-color: var(--warning);
+  @each $value in $status {
+    &--#{$value} {
+      background-color: var(--#{$value});
+      color: var(--textOnStatus);
 
-    &:hover,
-    &:active {
-      color: var(--warningHover);
-    }
-  }
+      &:hover,
+      &:active {
+        background-color: var(--#{$value}Hover);
+      }
 
-  &--attention {
-    background-color: var(--attention);
-
-    &:hover,
-    &:active {
-      color: var(--attentionHover);
-    }
-  }
-
-  &--success {
-    background-color: var(--success);
-
-    &:hover,
-    &:active {
-      color: var(--successHover);
-    }
-  }
-
-  &--danger {
-    background-color: var(--danger);
-
-    &:hover,
-    &:active {
-      color: var(--dangerHover);
+      &:disabled {
+        background-color: var(--disabled);
+        color: var(--textOnDisabled);
+      }
     }
   }
 

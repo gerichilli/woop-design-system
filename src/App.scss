@@ -1,7 +1,7 @@
 @use 'sass:map';
 @use './components/shared/styles/typography.scss' as typography;
-@import './components/shared/styles/themes.scss';
 @import '../node_modules/normalize-scss/sass/normalize.scss';
+@import './components/shared/styles/themes.scss';
 
 html {
   font-size: 1rem;
@@ -21,8 +21,9 @@ body {
   font-family: map.get(typography.$typo, 'type', 'primary'), Arial, sans-serif;
   font-size: map.get(typography.$typo, 'size', 's3');
   font-weight: map.get(typography.$typo, 'weight', 'regular');
-  color: var(--textPrimary);
   line-height: map.get(typography.$typo, 'leading', 'default');
+  color: var(--textPrimary);
+  background-color: var(--background);
   overflow-x: hidden;
 
   -webkit-font-smoothing: antialiased;

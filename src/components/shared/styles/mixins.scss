@@ -1,0 +1,7 @@
+@mixin createClassFromMaps($map, $property, $classPrefix) {
+  @each $key, $value in $map {
+    .#{$classPrefix}--#{$key} {
+      #{$property}: $value;
+    }
+  }
+}

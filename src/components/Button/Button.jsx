@@ -11,7 +11,7 @@ export const Button = forwardRef(function Button (props, ref){
   const variantClass = variant === "icon" ? styles['btn--icon'] : '';
   
   const btnClass = `${styles.btn} ${apperianceClass} ${sizeClass} ${variantClass}`
-  const btnText = leftIcon && rightIcon ? <span>{children}</span> : children;
+  const btnText = leftIcon || rightIcon ? <span>{children}</span> : children;
   
   return (
     <button className={btnClass} {...restProps} ref={ref}>
@@ -27,7 +27,8 @@ Button.defaultProps = {
   rightIcon: null,
   type: 'button',
   disabled: false,
-  variant: "standard"
+  variant: "standard",
+  apperiance: "primary",
 };
 
 Button.propTypes = {

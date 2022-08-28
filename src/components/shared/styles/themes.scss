@@ -1,7 +1,9 @@
 @use 'sass:map';
 @use './colors.scss' as colors;
 
-:root {
+:root,
+:root[data-theme='light'],
+:root[data-theme='default'] {
   // Colors
   --primary: #{map.get(colors.$colors, 'blue', '400')};
   --primaryHover: #{map.get(colors.$colors, 'blue', '550')};
@@ -24,9 +26,41 @@
   --dangerHover: #{map.get(colors.$colors, 'red', '450')};
   --textOnStatus: #{map.get(colors.$colors, 'grey', '0')};
 
-  --bg: #{map.get(colors.$colors, 'grey', '0')};
+  --background: #{map.get(colors.$colors, 'grey', '0')};
+  --backgroundDarker: #{map.get(colors.$colors, 'grey', '50')};
   --bgAlpha: #{map.get(colors.$colors, 'blackAlpha', '500')};
 
   // Strokes, borders
   --strokeFocus: 0px 0px 0px 2px #{map.get(colors.$colors, 'orange', '350')};
+}
+
+:root[data-theme='dark'] {
+  // Colors
+  --primary: #{map.get(colors.$colors, 'blue', '350')};
+  --primaryHover: #{map.get(colors.$colors, 'blue', '450')};
+  --primaryActive: #{map.get(colors.$colors, 'blue', '500')};
+  --primaryL1: #{map.get(colors.$colors, 'blue', '100')};
+  // --textOnPrimary: #{map.get(colors.$colors, 'grey', '0')};
+  --disabled: #{map.get(colors.$colors, 'grey', '700')};
+  --textOnDisabled: #{map.get(colors.$colors, 'grey', '400')};
+  --textPrimary: #{map.get(colors.$colors, 'grey', '250')};
+  --textSecondary: #{map.get(colors.$colors, 'grey', '350')};
+  --textTeritary: #{map.get(colors.$colors, 'grey', '650')};
+
+  // --warning: #{map.get(colors.$colors, 'orange', '400')};
+  // --warningHover: #{map.get(colors.$colors, 'orange', '450')};
+  --attention: #{map.get(colors.$colors, 'yellow', '250')};
+  --attentionHover: #{map.get(colors.$colors, 'yellow', '350')};
+  --success: #{map.get(colors.$colors, 'green', '350')};
+  // --successHover: #{map.get(colors.$colors, 'green', '400')};
+  --danger: #{map.get(colors.$colors, 'red', '250')};
+  --dangerHover: #{map.get(colors.$colors, 'red', '400')};
+  // --textOnStatus: #{map.get(colors.$colors, 'grey', '0')};
+
+  --background: #{map.get(colors.$colors, 'grey', '850')};
+  --backgroundDarker: #{map.get(colors.$colors, 'grey', '900')};
+  // --bgAlpha: #{map.get(colors.$colors, 'blackAlpha', '500')};
+
+  // Strokes, borders
+  // --strokeFocus: 0px 0px 0px 2px #{map.get(colors.$colors, 'orange', '350')};
 }
