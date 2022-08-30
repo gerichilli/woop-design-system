@@ -16,8 +16,8 @@ export function Stack({
     styles.Stack,
     direction && styles[direction],
     spacing && styles[spacing],
-    alignment && styles[alignment],
-    justify && styles[justify],
+    alignment && styles[`align-${alignment}`],
+    justify && styles[`justify-${justify}`],
   );
 
   return <div className={className} {...props}>{children}</div>;

@@ -24,8 +24,7 @@
   }
 
   &:disabled {
-    background-color: var(--disabled);
-    color: var(--textOnDisabled);
+    cursor: not-allowed;
   }
 
   & > * + * {
@@ -56,6 +55,11 @@
 
   &:active {
     background-color: var(--primaryActive);
+  }
+
+  &:disabled {
+    background-color: var(--disabled);
+    color: var(--textOnDisabled);
   }
 }
 
